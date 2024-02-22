@@ -2,8 +2,8 @@
 
 ```go
 atrz.WithRules(core.Rules{
-			{Table: []string{"student"}, RouteTypes: []core.RouteType{core.RouteTypeList}, RuleType: core.RuleTypeAllow},
-			{Table: []string{"*"}, RouteTypes: []core.RouteType{"*"}, RuleType: core.RuleTypeDeny},
+{Table: []string{"student"}, RouteTypes: []core.RouteType{core.RouteTypeList}, RuleType: core.RuleTypeAllow},
+{Table: []string{"*"}, RouteTypes: []core.RouteType{"*"}, RuleType: core.RuleTypeDeny},
 }),
 ```
 
@@ -12,9 +12,9 @@ atrz.WithRules(core.Rules{
 
 type Rules []Rule
 type Rule struct {
-	Table      []string
-	RouteTypes []RouteType
-	RuleType   RuleType
+Table      []string
+RouteTypes []RouteType
+RuleType   RuleType
 }
 
 ```
@@ -22,18 +22,18 @@ type Rule struct {
 #### 规则类型
 ```go
 const (
-	RuleTypeAllow RuleType = iota //允许
-	RuleTypeDeny //禁止
+RuleTypeAllow RuleType = iota //允许
+RuleTypeDeny //禁止
 )
 ```
 RouteType 是支持的默认路由类型，在访问控制的时候会用到
 ```go
 	RouteTypeInfo       RouteType = "INFO"
-	RouteTypeList       RouteType = "LIST"
-	RouteTypeCreate     RouteType = "CREATE"
-	RouteTypeUpdate     RouteType = "UPDATE"
-	RouteTypeDelete     RouteType = "DELETE"
-	RouteTypeCrateBatch RouteType = "CREATE_BATCH"
+RouteTypeList       RouteType = "LIST"
+RouteTypeCreate     RouteType = "CREATE"
+RouteTypeUpdate     RouteType = "UPDATE"
+RouteTypeDelete     RouteType = "DELETE"
+RouteTypeCrateBatch RouteType = "CREATE_BATCH"
 ```
 
 访问控制 通过atrz.WithRules配置，可以配置多条，从上到下依次匹配 <br>
